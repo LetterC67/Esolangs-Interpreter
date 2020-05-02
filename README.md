@@ -1,33 +1,41 @@
-# Esolangs-Interpreter
-An interpreter for Esoretic programming language (Esolang) :brain:
+# Esolangs Interpreter
+An interpreter for Esoteric programming language (Esolang) :brain: :computer:
 
-# Getting started
+Esoteric programming languages are really different from programming languages which you use everyday such as C/C++, Python, JS, etc. "They are designed to test the boundaries of computer programming design" (Wikipedia). Some of them are joke :smiley: and their syntax drive me crazy :grinning:
+
+By the way, using these Esolangs to make something is a good way to challenge yourself. Have fun! (Actually not really fun, unreadable code :unamused:)
+
+## Getting started :running:
 - These steps will show you how to run the interpreter on your own system
 - More information about Esolang from [Esolang Wiki](https://esolangs.org/wiki/Main_Page) and [Wikipedia](https://en.wikipedia.org/wiki/Esoteric_programming_language)
-## Structure:
+### Structure :dna:
 ```
 Esolangs-interpreter/
 ├── main.py
 └── languages/
       ├── esolang1
       |     ├── esolang1.py
+      |     ├── syntax.md
       |     └── HelloWorld.extension1
       ├── esolang2
       |     ├── esolang1.py
+      |     ├── syntax.md
       |     └── HelloWorld.extension2
       ...
       └── esolangN
             ├── esolangN.py
+            ├── syntax.md
             └── HelloWorld.extensionN
  ```
  - Inside esolangX.py file:
    + A string contains extension of HelloWorld file (aka extensionX)
    + A class named ```esolangX```
+ - Each language has its own syntax, can be found in its folder
  
-## Presiquites:
+### Presiquites :wrench:
 - A computer with Python 3.
 - No additional package required!
-## Usage:
+### Usage :gear:
 - Open Command Prompt at the interpreter's directory
   - Command: ```main.py [-h] [-l LANG] [-f FILE] [-i CODE] [-e] [--list-languages]```
     + ```--help``` and ```-h```: Show help message
@@ -47,5 +55,5 @@ import language # language.py (for example) file can be found in languages\langu
 foo = language.language("YOUR_CODE")
 foo.interpret() #start interpreting
 ```
-## Author:
+## Author :pencil2:
 - Hoang Le (LetterC67 or LetterC)
