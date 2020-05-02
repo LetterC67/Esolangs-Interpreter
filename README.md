@@ -37,7 +37,7 @@ Esolangs-interpreter/
     + ```-i``` and ```--inline```: Interpret code directly
     + ```-e``` and ```--example```: Run example code (from the HelloWorld file)
   - Example:
-    + ```main.py -l boolfuck -e```: Run Hello World code written in brainfuck
+    + ```main.py -l brainfuck -e```: Run the example Hello World code written in brainfuck
     + ```main.py -l CodeFuck -i="."""Goodbye!""""```: Print "Goodbye" in Codefuck. The original code is ```."Goodbye"``` but you must put it in 3 double-quotes to pass it as an argument. So it becomes: ```."""Goodbye"""```
     + ```main.py -l ABC -f dir\to\file.txt```: Open file at ```dir\to\file``` and interpret
 - In Python:
