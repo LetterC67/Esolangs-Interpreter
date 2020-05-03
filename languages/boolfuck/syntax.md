@@ -13,16 +13,45 @@
 [	If the value under the pointer is zero, jumps forward, just past the matching ] character.
 ]	Jumps back to the matching [ character.
 ```
-- Little Endian
-```
-Before
-| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-                              ^
-                              dot (.) command will write from right to left
-After
-| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
-```
-- Note: As soon as all bits are written, the interpreter will print it!   
+- Little Endian, Output & Input
+  + Input:
+  ``` 
+  The interpreter will ask for input if a comma is found, no space allowed:
+    Input (you can leave it blank): 10100101010101001001 
+  
+  
+  Input stream
+      0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  ...
+    | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 1 | ...
+                                  ^ comma (,) will read a bit from the input stream and write it to the tape
+                                  
+    After reading 1 byte, it will move to next byte
+      0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  ...
+    | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 1 | ...
+                                                                  ^ move to here
+                                                                
+  Tape
+      0   1   2   3   4   5   6   7   ...
+    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | ...
+                                  ^ Write here from the right to the left
+                                  
+    After a byte has been written, the pointer will move to next byte
+      0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  ...
+    | 0 | 0 | 1 | 1 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | ...
+                                                                  ^ move to here
+   
+  ```
+  + Output:
+  ```
+  Tape
+    0   1   2   3   4   5   6   7   ...
+  | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | ...
+                                ^
+                                dot (.) command will write from the right to the left
+  Output stream
+    0   1   2   3   4   5   6   7   ...
+  | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | ...
+  ```
 
 ## Example
 - Hello, world!
