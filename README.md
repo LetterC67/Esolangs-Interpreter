@@ -27,12 +27,12 @@ Esolangs-interpreter/
             ├── syntax.md
             └── HelloWorld.extensionN
  ```
- - Inside esolangX.py file:
+ - Inside ```esolangX.py``` file:
    + A string contains extension of HelloWorld file (aka extensionX)
    + A class named ```esolangX```
  - Each language has its own syntax, can be found in its folder
  
-### Presiquites :wrench:
+### Prerequisites :wrench:
 - A computer with Python 3.
 - No additional package required!
 ### Usage :gear:
