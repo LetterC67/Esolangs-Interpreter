@@ -7,15 +7,28 @@ class boolfuck():
         self.code = code
         self.data = [0]
         self.pointer = 0
-        self.bitOut = 0
-        self.bitPos = 0
+        self.bitOut = ''
+        self.bitInp = 0
+        self.input = ''
 
     def interpret(self):
+        if ',' in self.code:
+            self.input = input('Input (you can leave it blank): ')
+            
+        self.input = ''.join([self.input[index : index + 8][::-1] for index in range(0, len(self.input), 8)])
+        
         self._interpret(0, len(self.code))
 
-    def modifyBit(self, val, pos, _bit): 
-        mask = 1 << pos
-        return (val & ~mask) | ((_bit << pos) & mask) 
+        missing = ''
+        if len(self.bitOut) % 8:
+            missing = self.bitOut[floor(len(self.bitOut) / 8) * 8 : len(self.bitOut)][::-1]
+
+        self.bitOut = [self.bitOut[index : index + 8][::-1] for index in range(0, floor(len(self.bitOut) / 8) * 8, 8)]
+        for byte in self.bitOut:
+            print(chr(int(byte, 2)), end = '')
+
+        if missing:
+            print(chr(int(missing, 2)), end = '') 
 
     def _interpret(self, startPos, endPos):
         index = startPos
@@ -26,8 +39,8 @@ class boolfuck():
                 
             elif char == '>':
                 self.pointer += 1
-                if self.pointer == self.data.length:
-                    data.append(0)
+                if self.pointer == len(self.data):
+                    self.data.append(0)
                 
             elif char == '<':
                 self.pointer -= 1
@@ -36,15 +49,14 @@ class boolfuck():
                     self.pointer = 0
                 
             elif char == ';':
-                self.bitOut = self.modifyBit(self.bitOut, self.bitPos, self.data[self.pointer])
-                self.bitPos += 1
-                if self.bitPos == 8:
-                    print(chr(self.bitOut), end = '')
-                    self.bitOut = 0
-                    self.bitPos = 0
+                self.bitOut += str(self.data[self.pointer])
                     
             elif char == ',':
-                self.data[self.pointer] = int(input())
+                if self.bitInp >= len(self.input):
+                    self.data[self.pointer] = 0
+                else:
+                    self.data[self.pointer] = int(self.input[self.bitInp])
+                self.bitInp += 1
                 
             elif char == '[' and self.data[self.pointer] == 0:
                 count, _index = 1, index + 1
@@ -76,6 +88,3 @@ class boolfuck():
 
                             
             index += 1
-            
-        if self.bitPos:
-            print(chr(self.bitOut), end = '')
