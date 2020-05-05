@@ -4,3 +4,4 @@
 ## [boolfuck](languages/boolfuck/syntax.md)
 ## [brainfuck](languages/ABC/syntax.md)
 ## [CodeFuck](languages/CodeFuck/syntax.md)
+## [deadfish](languages/deadfish/syntax.md)
