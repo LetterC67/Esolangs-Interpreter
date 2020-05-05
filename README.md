@@ -7,11 +7,13 @@ By the way, using these Esolangs to make something is a good way to challenge yo
 
 ## Getting started :running:
 - These steps will show you how to run the interpreter on your own system
-- More information about Esolang from [Esolang Wiki](https://esolangs.org/wiki/Main_Page) and [Wikipedia](https://en.wikipedia.org/wiki/Esoteric_programming_language)
+- Esolangs' syntax [here](syntax.md)
+- Detailed information about Esolang from [Esolang Wiki](https://esolangs.org/wiki/Main_Page) and [Wikipedia](https://en.wikipedia.org/wiki/Esoteric_programming_language)
 ### Structure :dna:
 ```
 Esolangs-interpreter/
 ├── main.py
+├── syntax.md
 └── languages/
       ├── esolang1
       |     ├── esolang1.py
@@ -31,6 +33,7 @@ Esolangs-interpreter/
    + A string contains extension of HelloWorld file (aka extensionX)
    + A class named ```esolangX```
  - Each language has its own syntax, can be found in its folder
+ - ```syntax.md``` contains directory to all esolangs' syntax
  
 ### Prerequisites :wrench:
 - A computer with Python 3.
