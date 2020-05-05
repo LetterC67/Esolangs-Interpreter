@@ -50,10 +50,10 @@ Esolangs-interpreter/
     + ```main.py -l ABC -f dir\to\file.txt```: Open file at ```dir\to\file``` and interpret
 - In Python:
 ```python
-import language # language.py (for example) file can be found in languages\language\
+import foo # language.py (for example) file can be found in languages\foo\
 
-foo = language.language("YOUR_CODE")
-foo.interpret() #start interpreting
+bar = foo.language("YOUR_CODE")
+bar.interpret() #start interpreting
 ```
 ## Author :pencil2:
 - Hoang Le (LetterC67 or LetterC)
